@@ -1,0 +1,21 @@
+{
+  "name": "7terminals-java",
+  "author": "Francis Pereira",
+  "description": "The Java module allows Puppet to install the JDK/JRE ( Java ) and update the bashrc file to include java in the path. \n",
+  "license": "MIT",
+  "project_page": "https://github.com/7terminals/puppet-java",
+  "source": "https://github.com/7terminals/puppet-java",
+  "summary": "Puppet module to deploy Oracle\u0027s ( formerly Sun Microsystems ) JDK or JRE ( Java )",
+  "version": "0.0.7",
+  "checksums": {
+    "LICENSE": "9de0cb0039f7e66e328830c2d33b724e",
+    "Modulefile": "b87899f278acb1caed145bb25f9a8075",
+    "README.markdown": "17c34bbc5dfd8ae24a2a5a3f50f5e445",
+    "manifests\\init.pp": "146a643feec9f4e3cd489ccc8539f8b9",
+    "manifests\\setup.pp": "0b777ed823bf818b509949673b219c5d",
+    "spec\\spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "spec\\spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
+    "tests\\init.pp": "7f0809dc1fc0433fd31ba4c3bcfee84f"
+  },
+  "dependencies": []
+}

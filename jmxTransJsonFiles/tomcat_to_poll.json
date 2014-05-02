@@ -1,0 +1,34 @@
+{
+  "servers" : [ {
+    "port" : "${myserverport}",
+    "host" : "${myserverhost}",
+    "queries" : [ {
+      "outputWriters" : [ {
+        "@class" : "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+        "settings" : {
+          "port" : "${mygraphiteport}",
+          "host" : "${mygraphitehost}",
+          "typeNames" : [ "name" ]
+        }
+      } ],
+      "obj" : "Catalina:type=ThreadPool,name=*",
+      "resultAlias": "connectors",
+      "attr" : [ "currentThreadCount", "currentThreadsBusy", "" ]
+    },
+    {
+      "outputWriters" : [ {
+        "@class" : "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+        "settings" : {
+          "port" : "${mygraphiteport}",
+          "host" : "${mygraphitehost}",
+          "typeNames" : [ "name" ]
+        }
+      } ],
+      "obj" : "Catalina:type=GlobalRequestProcessor,name=*",
+      "resultAlias": "connectors",
+      "attr" : [ "processingTime", "requestCount", "" ]
+    }
+ ],
+    "numQueryThreads" : 2
+  } ]
+}

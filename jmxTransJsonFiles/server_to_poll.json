@@ -1,0 +1,67 @@
+{
+    "servers": [
+        {
+            "alias": "", 
+            "host": "${myserverhost}", 
+            "port": "${myserverport}", 
+            "queries": [
+                {
+                    "attr": [
+                        "HeapMemoryUsage", 
+                        "NonHeapMemoryUsage", 
+                        "ObjectPendingFinalizationCount"
+                    ], 
+                    "obj": "java.lang:type=Memory", 
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter", 
+                            "settings": {
+                                "host": "${mygraphitehost}", 
+                                "port": "${mygraphiteport}"
+                            }
+                        }
+                    ], 
+                    "resultAlias": "Memory"
+                }, 
+                {
+                    "attr": [
+                        "DaemonThreadCount", 
+                        "PeakThreadCount", 
+                        "CurrentThreadCpuTime", 
+                        "CurrentTheeadUserTime", 
+                        "ThreadCount", 
+                        "TotalStartedThreadCount"
+                    ], 
+                    "obj": "java.lang:type=Threading", 
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter", 
+                            "settings": {
+                                "host": "${mygraphitehost}", 
+                                "port": "${mygraphiteport}"
+                            }
+                        }
+                    ], 
+                    "resultAlias": "Threads"
+                }, 
+                {
+                    "attr": [
+                        "CollectionCount", 
+                        "CollectionTime"
+                    ], 
+                    "obj": "java.lang:type=GarbageCollector,name=Copy", 
+                    "outputWriters": [
+                        {
+                            "@class": "com.googlecode.jmxtrans.model.output.GraphiteWriter", 
+                            "settings": {
+                                "host": "${mygraphitehost}", 
+                                "port": "${mygraphiteport}"
+                            }
+                        }
+                    ], 
+                    "resultAlias": "GCCopy"
+                }
+            ]
+        }
+    ]
+}
